@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <!-- Define character encoding for the document -->
   <meta charset="UTF-8">
+  <!-- Ensure responsive design for various screen sizes -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Set the title of the webpage -->
   <title>Fiber Optik</title>
+  <!-- Include Bootstrap CSS for responsive layout and components -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Include AOS (Animate On Scroll) library for scroll animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Include custom fonts from Google Fonts for typography -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* Define CSS custom properties (variables) for consistent theming */
     :root {
       --color-white: #fff;
       --color-black: #000;
-      --color-dark-mode: #11111b;
-      --color-light-mode: #ece7e1;
+      --color-dark-mode: #11111b; /* Background color for dark mode */
+      --color-light-mode: #ece7e1; /* Background color for light mode */
       --color-ddd-color: #ddd;
       --color-gray: #c4c4c4;
       --color-purple: #8000ff;
       --color-light-purple: #cf59e6;
-      --color-light-blue: #6bc5f8;
+      --color-light-blue: #6bc5f8; /* Primary accent color */
       --color-navbarBorder-dark: #e2e2e207;
       --color-shadowDark: rgba(0, 0, 0, 0.137);
       --static-heading-gradient-blue: #b0f3f1;
       --static-heading-gradient-pink: #ffcfdf;
-      --tech-stack-box-first-color: #1a1a29;
-      --tech-stack-box-second-color: rgba(27, 27, 40, 0);
-      --tech-stack-box-border-color: #292929;
+      --tech-stack-box-first-color: #1a1a29; /* Gradient start for cards */
+      --tech-stack-box-second-color: rgba(27, 27, 40, 0); /* Gradient end for cards */
+      --tech-stack-box-border-color: #292929; /* Border color for cards */
     }
 
+    /* Reset default margins, padding, and enforce box-sizing */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      -webkit-user-select: none;
+      -webkit-user-select: none; /* Disable text selection for better UX */
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
-      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
     }
 
+    /* Ensure full height for HTML and body, with flexbox for layout */
     html, body {
       height: 100%;
       margin: 0;
     }
 
+    /* Base body styling with custom fonts and dark mode background */
     body {
       font-family: 'Montserrat', 'Fira Code', sans-serif;
       background: var(--color-dark-mode);
       color: var(--color-white);
-      overflow-x: hidden;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
       cursor: default;
-      transition: background-color 0.5s;
+      transition: background-color 0.5s; /* Smooth transition for theme changes */
       display: flex;
-      flex-direction: column;
+      flex-direction: column; /* Enable footer to stick to bottom */
     }
 
+    /* Light mode theme adjustments */
     body.light-mode {
       --color-dark-mode: #ece7e1;
       --color-black: #fff;
@@ -69,20 +80,23 @@
       --tech-stack-box-border-color: #dad5cf;
     }
 
+    /* Prevent scrolling when hamburger menu is active */
     body.stopscrolling {
       overflow: hidden;
     }
 
+    /* Style for background particle canvas */
     canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
-      opacity: 0.3;
+      z-index: -1; /* Place behind content */
+      opacity: 0.3; /* Subtle visibility */
     }
 
+    /* Custom scrollbar styling */
     ::-webkit-scrollbar {
       width: 5px;
     }
@@ -94,9 +108,10 @@
       border-radius: 5px;
     }
 
+    /* Navbar styling with gradient background and blur effect */
     .navbar {
       background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px); /* Glassmorphism effect */
       padding: 5px 50px;
       width: 70%;
       margin: 20px auto;
@@ -114,10 +129,12 @@
       align-items: center;
     }
 
+    /* Hover effect for navbar scaling */
     .navbar:hover {
       transform: translateX(-50%) scale(1.02);
     }
 
+    /* Navbar brand styling with logo and text */
     .navbar-brand {
       color: var(--color-light-blue) !important;
       font-size: 1rem;
@@ -134,12 +151,14 @@
       gap: 12px;
     }
 
+    /* Navbar logo styling */
     .navbar-brand img {
       height: 35px;
       margin-right: 15px;
       transition: height 0.3s ease;
     }
 
+    /* Hover effect for navbar brand */
     .navbar-brand:hover {
       color: var(--color-white) !important;
       transform: scale(1.05);
@@ -149,6 +168,7 @@
       height: 35px;
     }
 
+    /* Navigation link styling */
     .nav-link {
       color: var(--color-light-blue) !important;
       font-size: 0.9rem;
@@ -162,11 +182,13 @@
       font-family: 'Fira Code', monospace;
     }
 
+    /* Hover effect for nav links */
     .nav-link:hover {
       color: var(--color-white) !important;
       transform: scale(1.05);
     }
 
+    /* Active navigation link indicator */
     .nav-item.activeThistab .nav-link {
       color: var(--color-white) !important;
       position: relative;
@@ -183,11 +205,13 @@
       z-index: -1;
     }
 
+    /* Section content padding for fixed navbar */
     .section-content {
       padding: 120px 0 20px 0;
       flex: 1 0 auto;
     }
 
+    /* Section title styling */
     .section-title {
       font-family: 'Fira Code', monospace;
       font-size: 2.5rem;
@@ -197,10 +221,12 @@
       color: var(--color-white);
     }
 
+    /* Ensure row alignment for cards */
     .row {
       align-items: stretch;
     }
 
+    /* Card styling with gradient background and blur effect */
     .card {
       background: linear-gradient(135deg, rgba(26, 26, 41, 0.8), rgba(27, 27, 40, 0.6));
       border: 1px solid var(--tech-stack-box-border-color);
@@ -213,22 +239,25 @@
       gap: 15px;
       padding: 20px;
       opacity: 0;
-      animation: popIn 0.6s ease forwards;
+      animation: popIn 0.6s ease forwards; /* Animation for card appearance */
       position: relative;
       overflow: hidden;
-      animation: breathe 6s ease-in-out infinite alternate;
+      animation: breathe 6s ease-in-out infinite alternate; /* Breathing effect */
     }
 
+    /* Uniform card height for consistent layout */
     .uniform-card {
-      height: 300px; /* Tinggi lebih kecil untuk proporsional */
+      height: 300px;
       display: flex;
       flex-direction: column;
     }
 
+    /* Longer card for specific sections */
     .card.long-card {
       min-height: 400px;
     }
 
+    /* Card pseudo-element for radial gradient effect */
     .card::before {
       content: '';
       position: absolute;
@@ -241,6 +270,7 @@
       transition: transform 0.6s ease;
     }
 
+    /* Card hover effects */
     .card:hover {
       transform: translateY(-10px) rotate(1deg);
       box-shadow: 0 10px 30px rgba(107, 197, 248, 0.3);
@@ -251,6 +281,7 @@
       transform: translate(20%, 20%);
     }
 
+    /* Animation for card appearance */
     @keyframes popIn {
       0% {
         opacity: 0;
@@ -262,6 +293,7 @@
       }
     }
 
+    /* Breathing animation for cards */
     @keyframes breathe {
       0% {
         transform: translateY(0) scale(1);
@@ -271,6 +303,7 @@
       }
     }
 
+    /* Bounce animation on hover */
     @keyframes bounce {
       0%, 100% {
         transform: translateY(-10px) rotate(1deg);
@@ -280,6 +313,7 @@
       }
     }
 
+    /* Card title styling with gradient text */
     .card h3 {
       color: var(--color-light-blue);
       font-weight: 700;
@@ -295,6 +329,7 @@
       z-index: 1;
     }
 
+    /* Card content styling */
     .card-content {
       font-family: 'Poppins', sans-serif;
       text-align: justify;
@@ -306,9 +341,10 @@
       scrollbar-width: none;
     }
     .card-content::-webkit-scrollbar {
-      display: none;
+      display: none; /* Hide scrollbar for card content */
     }
 
+    /* Card image styling */
     .card-image {
       width: 350px;
       height: 350px;
@@ -320,10 +356,12 @@
       max-width: 100%;
     }
 
+    /* Image hover effect */
     .card-image:hover {
       transform: scale(1.1);
     }
 
+    /* Modal styling for image popup */
     .modal {
       display: none;
       position: fixed;
@@ -339,11 +377,13 @@
       transition: opacity 0.3s ease;
     }
 
+    /* Show modal with animation */
     .modal.show {
       display: flex;
       opacity: 1;
     }
 
+    /* Modal content (image) styling */
     .modal-content {
       max-width: 90%;
       max-height: 90%;
@@ -359,6 +399,7 @@
       transform: scale(1);
     }
 
+    /* Modal close button */
     .close {
       position: absolute;
       top: 20px;
@@ -373,6 +414,7 @@
       transform: scale(1.2);
     }
 
+    /* Footer styling */
     footer {
       background: var(--color-dark-mode);
       padding: 20px 0;
@@ -383,6 +425,7 @@
       width: 100%;
     }
 
+    /* Footer content styling */
     .footer-content {
       max-width: 600px;
       margin: 0 auto;
@@ -401,6 +444,7 @@
       font-family: 'Fira Code', monospace;
     }
 
+    /* Back-to-top button styling */
     #backtotopbutton {
       position: fixed;
       right: 20px;
@@ -428,6 +472,7 @@
       font-weight: bold;
     }
 
+    /* Settings toggle container */
     .setting-container {
       position: fixed;
       top: 20px;
@@ -443,10 +488,12 @@
       z-index: 1001;
     }
 
+    /* Expanded settings container */
     .settingactivate {
       width: 200px;
     }
 
+    /* Settings toggle button */
     #labelforsetting {
       width: 40px;
       height: 40px;
@@ -465,6 +512,7 @@
       transform: rotate(180deg);
     }
 
+    /* Visual and sound toggle containers */
     .visualmodetogglebuttoncontainer, .soundtogglebuttoncontainer {
       align-items: center;
       width: fit-content;
@@ -481,6 +529,7 @@
       transition-delay: 0.1s;
     }
 
+    /* Visual mode toggle button */
     #labelforvisualmode {
       width: 40px;
       height: 40px;
@@ -498,6 +547,7 @@
       background-size: 60%;
     }
 
+    /* Sound toggle button */
     #labelforsound {
       width: 40px;
       height: 40px;
@@ -514,6 +564,7 @@
       background-size: 50%;
     }
 
+    /* Hamburger menu for mobile */
     .hamburger {
       display: none;
       position: fixed;
@@ -534,6 +585,7 @@
       justify-content: center;
     }
 
+    /* Hamburger button styling */
     #hamburger-button {
       font-size: 1.8rem;
       width: 2.5rem;
@@ -556,6 +608,7 @@
       transform: scale(0.95);
     }
 
+    /* Hamburger bars */
     #burger-bar1, #burger-bar2, #burger-bar3 {
       height: 0.2rem;
       background-color: var(--color-white);
@@ -571,6 +624,7 @@
       width: 2rem;
     }
 
+    /* Hamburger animation for open/close */
     .hamburger-animation1 {
       transform: rotate(45deg) scaleX(1.5);
       transform-origin: left;
@@ -585,6 +639,7 @@
       transform-origin: left;
     }
 
+    /* Responsive navbar for mobile */
     .responsive-navbar {
       position: fixed;
       top: 0;
@@ -610,6 +665,7 @@
       transform: translateX(-100%);
     }
 
+    /* Responsive navbar brand */
     .responsive-nav-brand {
       display: flex;
       justify-content: center;
@@ -644,6 +700,7 @@
       margin: 0 10px;
     }
 
+    /* Responsive navigation links */
     .responsive-nav-links {
       display: flex;
       flex-direction: column;
@@ -705,6 +762,7 @@
       transition-delay: 0.3s;
     }
 
+    /* Custom cursor styling */
     .cursor-inner, .cursor-outer {
       position: fixed;
       top: 0;
@@ -740,291 +798,301 @@
       height: 50px;
     }
 
-@media screen and (max-width: 1200px) {
-  .navbar {
-    width: 80%;
-    padding: 5px 30px;
-  }
+    /* Responsive styles for screens <= 1200px */
+    @media screen and (max-width: 1200px) {
+      .navbar {
+        width: 80%;
+        padding: 5px 30px;
+      }
 
-  .navbar-brand img {
-    height: 30px;
-  }
+      .navbar-brand img {
+        height: 30px;
+      }
 
-  .nav-link {
-    font-size: 0.85rem;
-  }
+      .nav-link {
+        font-size: 0.85rem;
+      }
 
-  .section-content {
-    padding-top: 110px;
-  }
+      .section-content {
+        padding-top: 110px;
+      }
 
-  .section-title {
-    font-size: clamp(1.8rem, 4.5vw, 2.2rem);
-  }
+      .section-title {
+        font-size: clamp(1.8rem, 4.5vw, 2.2rem);
+      }
 
-  .card {
-    padding: clamp(10px, 2.5vw, 15px);
-  }
+      .card {
+        padding: clamp(10px, 2.5vw, 15px);
+      }
 
-  .card h3 {
-    font-size: clamp(1.3rem, 3vw, 1.6rem);
-  }
+      .card h3 {
+        font-size: clamp(1.3rem, 3vw, 1.6rem);
+      }
 
-  .card-content p, .card-content li {
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-  }
+      .card-content p, .card-content li {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+      }
 
-  .card-image {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    max-height: 350px;
-    object-fit: contain;
-  }
+      .card-image {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        max-height: 350px;
+        object-fit: contain;
+      }
 
-  .uniform-card {
-    min-height: 260px; /* Changed to min-height */
-  }
-}
+      .uniform-card {
+        min-height: 260px;
+      }
+    }
 
-@media screen and (max-width: 998px) {
-  .navbar {
-    display: none;
-  }
+    /* Responsive styles for screens <= 998px (mobile navbar) */
+    @media screen and (max-width: 998px) {
+      .navbar {
+        display: none;
+      }
 
-  .hamburger {
-    display: flex;
-  }
+      .hamburger {
+        display: flex;
+      }
 
-  .cursor-inner, .cursor-outer {
-    display: none;
-  }
+      .cursor-inner, .cursor-outer {
+        display: none;
+      }
 
-  .section-content {
-    padding-top: 90px;
-  }
+      .section-content {
+        padding-top: 90px;
+      }
 
-  .section-title {
-    font-size: clamp(1.6rem, 4vw, 2rem);
-  }
+      .section-title {
+        font-size: clamp(1.6rem, 4vw, 2rem);
+      }
 
-  .card {
-    padding: clamp(8px, 2vw, 12px);
-  }
+      .card {
+        padding: clamp(8px, 2vw, 12px);
+      }
 
-  .card h3 {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-  }
+      .card h3 {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+      }
 
-  .card-content p, .card-content li {
-    font-size: clamp(0.85rem, 2.5vw, 1rem);
-  }
+      .card-content p, .card-content li {
+        font-size: clamp(0.85rem, 2.5vw, 1rem);
+      }
 
-  .card-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-  }
+      .card-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+      }
 
-  .uniform-card {
-    min-height: 240px; /* Changed to min-height */
-  }
-}
+      .uniform-card {
+        min-height: 240px;
+      }
+    }
 
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 80%;
-  }
+    /* Responsive styles for screens <= 768px */
+    @media screen and (max-width: 768px) {
+      html {
+        font-size: 80%;
+      }
 
-  .navbar-brand img, .responsive-nav-brand img {
-    height: 25px;
-  }
+      .navbar-brand img, .responsive-nav-brand img {
+        height: 25px;
+      }
 
-  .responsive-nav-brand span {
-    font-size: 0.85rem;
-  }
+      .responsive-nav-brand span {
+        font-size: 0.85rem;
+      }
 
-  .hamburgerbase {
-    padding: 8px 12px;
-  }
+      .hamburgerbase {
+        padding: 8px 12px;
+      }
 
-  #hamburger-button {
-    width: 2rem;
-    height: 1.8rem;
-  }
+      #hamburger-button {
+        width: 2rem;
+        height: 1.8rem;
+      }
 
-  #burger-bar1, #burger-bar3 {
-    width: 1.2rem;
-  }
+      #burger-bar1, #burger-bar3 {
+        width: 1.2rem;
+      }
 
-  #burger-bar2 {
-    width: 1.6rem;
-  }
+      #burger-bar2 {
+        width: 1.6rem;
+      }
 
-  .section-title {
-    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
-  }
+      .section-title {
+        font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+      }
 
-  .card {
-    padding: clamp(8px, 2vw, 10px);
-  }
+      .card {
+        padding: clamp(8px, 2vw, 10px);
+      }
 
-  .card h3 {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-  }
+      .card h3 {
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+      }
 
-  .card-content p, .card-content li {
-    font-size: clamp(0.9rem, 2.8vw, 1.1rem);
-  }
+      .card-content p, .card-content li {
+        font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      }
 
-  .card-image {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    max-height: 250px;
-    object-fit: contain;
-  }
+      .card-image {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        max-height: 250px;
+        object-fit: contain;
+      }
 
-  footer {
-    padding: 15px 0;
-  }
+      footer {
+        padding: 15px 0;
+      }
 
-  .footer-content {
-    max-width: 90%;
-  }
+      .footer-content {
+        max-width: 90%;
+      }
 
-  .uniform-card {
-    min-height: 220px;
-  }
-}
+      .uniform-card {
+        min-height: 220px;
+      }
+    }
 
-@media screen and (max-width: 576px) {
-  html {
-    font-size: 85%; /* Increased for better readability */
-  }
+    /* Responsive styles for screens <= 576px */
+    @media screen and (max-width: 576px) {
+      html {
+        font-size: 85%;
+      }
 
-  .navbar-brand img, .responsive-nav-brand img {
-    height: 20px;
-  }
+      .navbar-brand img, .responsive-nav-brand img {
+        height: 20px;
+      }
 
-  .responsive-nav-brand span {
-    font-size: 0.75rem;
-  }
+      .responsive-nav-brand span {
+        font-size: 0.75rem;
+      }
 
-  .hamburgerbase {
-    padding: 6px 10px;
-  }
+      .hamburgerbase {
+        padding: 6px 10px;
+      }
 
-  #hamburger-button {
-    width: 1.8rem;
-    height: 1.5rem;
-  }
+      #hamburger-button {
+        width: 1.8rem;
+        height: 1.5rem;
+      }
 
-  #burger-bar1, #burger-bar3 {
-    width: 1rem;
-  }
+      #burger-bar1, #burger-bar3 {
+        width: 1rem;
+      }
 
-  #burger-bar2 {
-    width: 1.4rem;
-  }
+      #burger-bar2 {
+        width: 1.4rem;
+      }
 
-  .section-title {
-    font-size: clamp(1.4rem, 3vw, 1.6rem);
-  }
+      .section-title {
+        font-size: clamp(1.4rem, 3vw, 1.6rem);
+      }
 
-  .card {
-    padding: clamp(8px, 2vw, 10px);
-  }
+      .card {
+        padding: clamp(8px, 2vw, 10px);
+      }
 
-  .card h3 {
-    font-size: clamp(1rem, 2.8vw, 1.3rem);
-  }
+      .card h3 {
+        font-size: clamp(1rem, 2.8vw, 1.3rem);
+      }
 
-  .card-content p, .card-content li {
-    font-size: clamp(0.9rem, 2.8vw, 1.1rem);
-  }
+      .card-content p, .card-content li {
+        font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      }
 
-  .card-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    max-height: 200px;
-    object-fit: contain;
-  }
+      .card-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
+      }
 
-  footer {
-    padding: 10px 0;
-  }
+      footer {
+        padding: 10px 0;
+      }
 
-  .footer-content {
-    padding: 0 10px;
-    max-width: 100%;
-  }
+      .footer-content {
+        padding: 0 10px;
+        max-width: 100%;
+      }
 
-  .uniform-card {
-    min-height: 200px;
-  }
-}
+      .uniform-card {
+        min-height: 200px;
+      }
+    }
 
-@media screen and (max-width: 400px) {
-  html {
-    font-size: 90%; /* Further increased for readability */
-  }
+    /* Responsive styles for screens <= 400px */
+    @media screen and (max-width: 400px) {
+      html {
+        font-size: 90%;
+      }
 
-  .section-content {
-    padding-top: 80px;
-  }
+      .section-content {
+        padding-top: 80px;
+      }
 
-  .section-title {
-    font-size: clamp(1.3rem, 3vw, 1.5rem);
-  }
+      .section-title {
+        font-size: clamp(1.3rem, 3vw, 1.5rem);
+      }
 
-  .card h3 {
-    font-size: clamp(0.9rem, 2.8vw, 1.2rem);
-  }
+      .card h3 {
+        font-size: clamp(0.9rem, 2.8vw, 1.2rem);
+      }
 
-  .card-content p, .card-content li {
-    font-size: clamp(0.85rem, 2.8vw, 1rem);
-  }
+      .card-content p, .card-content li {
+        font-size: clamp(0.85rem, 2.8vw, 1rem);
+      }
 
-  .responsive-nav-link {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
+      .responsive-nav-link {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
 
-  .footer-content p {
-    font-size: 0.7rem;
-  }
+      .footer-content p {
+        font-size: 0.7rem;
+      }
 
-  .footer-subtitle {
-    font-size: 0.65rem;
-  }
+      .footer-subtitle {
+        font-size: 0.65rem;
+      }
 
-  .card-image {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    max-height: 180px;
-    object-fit: contain;
-  }
+      .card-image {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        max-height: 180px;
+        object-fit: contain;
+      }
 
-  .uniform-card {
-    min-height: 180px;
-  }
-}
+      .uniform-card {
+        min-height: 180px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Background canvas for particle animation -->
   <canvas id="particleCanvas"></canvas>
+
+  <!-- Main navbar for desktop view -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="/web/home.html">
+      <!-- Navbar brand with logos -->
+      <a class="navbar-brand" href="fiber.html">
         <img src="telkom.svg" alt="SMK Telkom Logo">
         <span>|</span>
         <img src="jago.id2.svg" alt="JAGO Logo">
       </a>
+      <!-- Navbar collapse for navigation links -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
@@ -1033,16 +1101,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
-          </li>
           <li class="nav-item activeThistab">
             <a class="nav-link" href="/web/fiber.html">FIBER OPTIK</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!-- Hamburger menu for mobile view -->
   <div class="hamburger">
     <div class="hamburgerbase">
       <button id="hamburger-button" onclick="toggleResponsiveNavbar()">
@@ -1052,8 +1122,10 @@
       </button>
     </div>
   </div>
+
+  <!-- Responsive navbar for mobile view -->
   <nav class="responsive-navbar" id="responsiveNavbar">
-    <a class="responsive-nav-brand" href="/web/home.html">
+    <a class="responsive-nav-brand" href="fiber.html">
       <img src="telkom.svg" alt="SMK Telkom Logo">
       <span>|</span>
       <img src="jago.id2.svg" alt="JAGO Logo">
@@ -1061,13 +1133,16 @@
     <div class="responsive-nav-links">
       <a class="responsive-nav-link" href="/web/home.html">BERANDA</a>
       <a class="responsive-nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
-      <a class="responsive-nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
       <a class="responsive-nav-link activeThistab" href="/web/fiber.html">FIBER OPTIK</a>
+      <a class="responsive-nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
     </div>
   </nav>
+
+  <!-- Main content section for fiber optic information -->
   <section id="fiber" class="section-content">
     <div class="container">
       <div class="row">
+        <!-- Card for Fiber Optic Definition -->
         <div class="col-12 col-md-6 mb-4">
           <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card-content">
@@ -1077,6 +1152,7 @@
             </div>
           </div>
         </div>
+        <!-- Card for Fiber Optic Characteristics -->
         <div class="col-12 col-md-6 mb-4">
           <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card-content">
@@ -1095,6 +1171,7 @@
         </div>
       </div>
       <div class="row">
+        <!-- Card for Fiber Optic Connector Types -->
         <div class="col-12 col-md-6 mb-4">
           <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card-content">
@@ -1109,6 +1186,7 @@
             </div>
           </div>
         </div>
+        <!-- Card for How Fiber Optics Work -->
         <div class="col-12 col-md-6 mb-4">
           <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="400">
             <div class="card-content">
@@ -1123,6 +1201,7 @@
         </div>
       </div>
       <div class="row">
+        <!-- Card for Advantages and Disadvantages -->
         <div class="col-12 col-md-6 mb-4">
           <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="500">
             <div class="card-content">
@@ -1144,6 +1223,7 @@
             </div>
           </div>
         </div>
+        <!-- Card for Types of Fiber Optics -->
         <div class="col-12 col-md-6 mb-4">
           <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="600">
             <div class="card-content">
@@ -1157,6 +1237,7 @@
         </div>
       </div>
       <div class="row">
+        <!-- Card for Fiber Optic Components with Image -->
         <div class="col-12 mb-4">
           <div class="card long-card p-4" data-aos="fade-up" data-aos-delay="700">
             <img src="contoh.jpg" alt="Fiber Optik Structure" class="card-image">
@@ -1200,19 +1281,27 @@
       </div>
     </div>
   </section>
+
+  <!-- Modal for image popup -->
   <div id="modal" class="modal">
     <span class="close" onclick="closePopup()">&times;</span>
     <img id="modal-image" class="modal-content" src="">
   </div>
+
+  <!-- Footer section -->
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 Telekomunikasi Elite.</p>
       <p class="footer-subtitle">🚀 SMK Telkom Makassar - Innovation in Telecommunications</p>
     </div>
   </footer>
+
+  <!-- Back-to-top button -->
   <button id="backtotopbutton" onclick="scrolltoTopfunction()">
     <span>↑</span>
   </button>
+
+  <!-- Settings toggle container -->
   <div class="setting-container" id="setting-container">
     <input type="checkbox" id="switchforsetting" class="d-none" onchange="settingtoggle()">
     <label for="switchforsetting" id="labelforsetting"></label>
@@ -1225,7 +1314,9 @@
       <label for="switchforsound" id="labelforsound"></label>
     </div>
   </div>
+
   <script>
+    // Select DOM elements for JavaScript manipulation
     const settingContainer = document.getElementById("setting-container");
     const visualModeToggle = document.getElementById("visualmodetogglebuttoncontainer");
     const soundToggle = document.getElementById("soundtogglebuttoncontainer");
@@ -1237,6 +1328,7 @@
     const modal = document.getElementById("modal");
     const modalImage = document.getElementById("modal-image");
 
+    // Initialize canvas for particle animation
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -1244,6 +1336,7 @@
     const particlesArray = [];
     const numberOfParticles = 100;
 
+    // Particle class for background animation
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
@@ -1267,12 +1360,14 @@
       }
     }
 
+    // Initialize particles
     function initParticles() {
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
     }
 
+    // Animate particles with connections
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < particlesArray.length; i++) {
@@ -1300,6 +1395,7 @@
       requestAnimationFrame(animateParticles);
     }
 
+    // Custom cursor implementation
     function initCustomCursor() {
       const cursorInner = document.createElement('div');
       const cursorOuter = document.createElement('div');
@@ -1327,6 +1423,7 @@
       });
     }
 
+    // Toggle settings panel
     function settingtoggle() {
       settingContainer.classList.toggle("settingactivate");
       setTimeout(() => {
@@ -1338,6 +1435,7 @@
       navigator.vibrate && navigator.vibrate(50);
     }
 
+    // Toggle sound (audio not defined in this snippet)
     function playpause() {
       if (!document.getElementById("switchforsound").checked) {
         audio.pause();
@@ -1346,6 +1444,7 @@
       }
     }
 
+    // Toggle light/dark mode
     function visualmode() {
       document.body.style.transition = 'all 0.5s ease';
       document.body.classList.toggle("light-mode");
@@ -1356,6 +1455,7 @@
       }, 250);
     }
 
+    // Toggle responsive navbar
     function toggleResponsiveNavbar() {
       document.body.classList.toggle("stopscrolling");
       responsiveNavbar.classList.toggle("active");
@@ -1364,6 +1464,7 @@
       burgerBar3.classList.toggle("hamburger-animation3");
     }
 
+    // Show/hide back-to-top button based on scroll position
     function scrollFunction() {
       if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         backToTopButton.style.display = "block";
@@ -1372,26 +1473,24 @@
       }
     }
 
-    // Fungsi untuk scroll ke atas dengan animasi
-function scrolltoTopfunction() {
-  const duration = 200; // Durasi animasi dalam milidetik
-  const start = window.scrollY; // Posisi scroll awal
-  const startTime = performance.now(); // Waktu mulai animasi
-
-  function animateScroll(currentTime) {
-    const elapsed = currentTime - startTime; // Waktu yang telah berlalu
-    const progress = Math.min(elapsed / duration, 1); // Progres animasi (0 hingga 1)
-    const ease = progress * (2 - progress); // Fungsi easing untuk animasi lebih halus
-    window.scrollTo(0, start * (1 - ease)); // Hitung posisi scroll baru
-
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll); // Lanjutkan animasi hingga selesai
+    // Smooth scroll to top
+    function scrolltoTopfunction() {
+      const duration = 200;
+      const start = window.scrollY;
+      const startTime = performance.now();
+      function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress * (2 - progress);
+        window.scrollTo(0, start * (1 - ease));
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+      requestAnimationFrame(animateScroll);
     }
-  }
 
-  requestAnimationFrame(animateScroll);
-}
-
+    // Update navigation based on scroll position
     function initNavigation() {
       const sections = document.querySelectorAll("section");
       const navLi = document.querySelectorAll(".navbar .navbar-nav .nav-item");
@@ -1421,11 +1520,13 @@ function scrolltoTopfunction() {
       });
     }
 
+    // Handle window resize for canvas
     function handleResize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
 
+    // Smooth scrolling for anchor links
     function initSmoothScrolling() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -1444,6 +1545,7 @@ function scrolltoTopfunction() {
       });
     }
 
+    // Scroll progress bar
     function initScrollProgress() {
       const progressBar = document.createElement('div');
       progressBar.style.cssText = `
@@ -1465,6 +1567,7 @@ function scrolltoTopfunction() {
       });
     }
 
+    // Console art for developer branding
     function initConsoleArt() {
       console.log('%c 🚀 SMK Telkom Makassar - Jago Telekomunikasi ',
         'background: linear-gradient(90deg, var(--color-light-blue), var(--color-white)); color: var(--color-black); font-weight: 900; font-size: 1.2rem; padding: 15px; border-radius: 5px; margin: 10px 0;'
@@ -1477,6 +1580,7 @@ function scrolltoTopfunction() {
       );
     }
 
+    // Keyboard navigation support
     function initKeyboardNav() {
       document.addEventListener('keydown', (e) => {
         switch(e.key) {
@@ -1500,6 +1604,7 @@ function scrolltoTopfunction() {
       });
     }
 
+    // Performance monitoring
     function initPerformanceMonitor() {
       window.addEventListener('load', () => {
         const loadTime = performance.now();
@@ -1509,11 +1614,13 @@ function scrolltoTopfunction() {
       });
     }
 
+    // Show image popup
     function showPopup(imageSrc) {
       modal.classList.add('show');
       modalImage.src = imageSrc;
     }
 
+    // Close image popup
     function closePopup() {
       modal.classList.remove('show');
       setTimeout(() => {
@@ -1521,6 +1628,7 @@ function scrolltoTopfunction() {
       }, 300);
     }
 
+    // Initialize image popup functionality
     function initImagePopup() {
       const cardImages = document.querySelectorAll('.card-image');
       cardImages.forEach(image => {
@@ -1530,6 +1638,7 @@ function scrolltoTopfunction() {
       });
     }
 
+    // Initialize all functionality
     function init() {
       initParticles();
       animateParticles();
@@ -1555,10 +1664,13 @@ function scrolltoTopfunction() {
       });
     }
 
+    // Run initialization on DOM load
     document.addEventListener('DOMContentLoaded', init);
   </script>
+  <!-- Include AOS library for scroll animations -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Initialize AOS with configuration
     document.addEventListener('DOMContentLoaded', function() {
       AOS.init({
         duration: 1000,
@@ -1566,6 +1678,7 @@ function scrolltoTopfunction() {
       });
     });
   </script>
+  <!-- Include Popper.js and Bootstrap JS for navbar functionality -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>

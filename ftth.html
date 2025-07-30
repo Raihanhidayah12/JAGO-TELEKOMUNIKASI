@@ -857,62 +857,58 @@
   <!-- Canvas untuk animasi partikel di latar belakang -->
   <canvas id="particleCanvas"></canvas>
 
-  <!-- Navbar utama untuk tampilan desktop -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <!-- Logo SMK Telkom dan JAGO -->
-        <img src="telkom.svg" alt="SMK Telkom Logo">
-        <span>|</span>
-        <img src="jago.id2.svg" alt="JAGO Logo">
-      </a>
-      <!-- Tombol toggler untuk navbar responsif -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/web/home.html">BERANDA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
-          </li>
-          <li class="nav-item activeThistab">
-            <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/web/fiber.html">FIBER OPTIK</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hamburger menu untuk tampilan mobile -->
-  <div class="hamburger">
-    <div class="hamburgerbase">
-      <button id="hamburger-button" onclick="toggleResponsiveNavbar()">
-        <div id="burger-bar1" class="burger-bar"></div>
-        <div id="burger-bar2" class="burger-bar"></div>
-        <div id="burger-bar3" class="burger-bar"></div>
-      </button>
-    </div>
-  </div>
-  <!-- Navbar responsif untuk mobile -->
-  <nav class="responsive-navbar" id="responsiveNavbar">
-    <a class="responsive-nav-brand" href="/web/home.html">
+<!-- Navbar utama untuk tampilan desktop -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="ftth.html">
       <img src="telkom.svg" alt="SMK Telkom Logo">
       <span>|</span>
       <img src="jago.id2.svg" alt="JAGO Logo">
     </a>
-    <div class="responsive-nav-links">
-      <a class="responsive-nav-link" href="/web/home.html">BERANDA</a>
-      <a class="responsive-nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
-      <a class="responsive-nav-link activeThistab" href="/web/ftth.html">KONFIGURASI FTTH</a> 
-      <a class="responsive-nav-link" href="/web/fiber.html">FIBER OPTIK</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/web/home.html">BERANDA</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/web/fiber.html">FIBER OPTIK</a> <!-- Pindah ke posisi sebelumnya -->
+        </li>
+        <li class="nav-item activeThistab">
+          <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a> <!-- Pindah ke posisi setelahnya -->
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<!-- Hamburger menu untuk tampilan mobile -->
+<div class="hamburger">
+  <div class="hamburgerbase">
+    <button id="hamburger-button" onclick="toggleResponsiveNavbar()">
+      <div id="burger-bar1" class="burger-bar"></div>
+      <div id="burger-bar2" class="burger-bar"></div>
+      <div id="burger-bar3" class="burger-bar"></div>
+    </button>
+  </div>
+</div>
+
+<!-- Navbar responsif untuk mobile -->
+<nav class="responsive-navbar" id="responsiveNavbar">
+  <a class="responsive-nav-brand" href="ftth.html">
+    <img src="telkom.svg" alt="SMK Telkom Logo">
+    <span>|</span>
+    <img src="jago.id2.svg" alt="JAGO Logo">
+  </a>
+  <div class="responsive-nav-links">
+    <a class="responsive-nav-link" href="/web/home.html">BERANDA</a>
+    <a class="responsive-nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
+    <a class="responsive-nav-link" href="/web/fiber.html">FIBER OPTIK</a> <!-- Pindah ke posisi sebelumnya -->
+    <a class="responsive-nav-link activeThistab" href="/web/ftth.html">KONFIGURASI FTTH</a> <!-- Pindah ke posisi setelahnya -->
+  </div>
+</nav>
 
   <!-- Konten utama: Bagian Konfigurasi FTTH -->
   <section id="ftth" class="section-content">

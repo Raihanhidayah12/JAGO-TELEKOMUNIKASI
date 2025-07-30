@@ -903,33 +903,32 @@
     </div>
   </div>
 
-  <!-- Navbar utama untuk tampilan desktop -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#home">
-        <!-- Logo SMK Telkom dan JAGO -->
-        <img src="telkom.svg" alt="SMK Telkom Logo">
-        <span>|</span>
-        <img src="jago.id2.svg" alt="JAGO Logo">
-      </a>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">BERANDA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/web/fiber.html">FIBER OPTIK</a>
-          </li>
-        </ul>
-      </div>
+<!-- Navbar utama untuk tampilan desktop -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="telecom.html">
+      <img src="telkom.svg" alt="SMK Telkom Logo">
+      <span>|</span>
+      <img src="jago.id2.svg" alt="JAGO Logo">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/web/home.html">BERANDA</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="telecom.html">TENTANG TELEKOMUNIKASI</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="fiber.html">FIBER OPTIK</a> <!-- Pindah ke posisi sebelumnya -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ftth.html">KONFIGURASI FTTH</a> <!-- Pindah ke posisi setelahnya -->
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Hamburger menu untuk tampilan mobile -->
   <div class="hamburger">
@@ -941,20 +940,20 @@
       </button>
     </div>
   </div>
-  <!-- Navbar responsif untuk mobile -->
-  <nav class="responsive-navbar" id="responsiveNavbar">
-    <a class="responsive-nav-brand" href="#home">
-      <img src="telkom.svg" alt="SMK Telkom Logo">
-      <span>|</span>
-      <img src="jago.id2.svg" alt="JAGO Logo">
-    </a>
-    <div class="responsive-nav-links">
-      <a class="responsive-nav-link" href="#home">BERANDA</a>
-      <a class="responsive-nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
-      <a class="responsive-nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
-      <a class="responsive-nav-link" href="/web/fiber.html">FIBER OPTIK</a>
-    </div>
-  </nav>
+<!-- Navbar responsif untuk mobile -->
+<nav class="responsive-navbar" id="responsiveNavbar">
+  <a class="responsive-nav-brand" href="/web/home.html">
+    <img src="telkom.svg" alt="SMK Telkom Logo">
+    <span>|</span>
+    <img src="jago.id2.svg" alt="JAGO Logo">
+  </a>
+  <div class="responsive-nav-links">
+    <a class="responsive-nav-link" href="/web/home.html">BERANDA</a>
+    <a class="responsive-nav-link" href="telecom.html">TENTANG TELEKOMUNIKASI</a>
+    <a class="responsive-nav-link" href="fiber.html">FIBER OPTIK</a> <!-- Pindah ke posisi sebelumnya -->
+    <a class="responsive-nav-link" href="ftth.html">KONFIGURASI FTTH</a> <!-- Pindah ke posisi setelahnya -->
+  </div>
+</nav>
 
   <!-- Hero section: Bagian utama halaman -->
   <section id="home" class="hero-section">
@@ -1207,35 +1206,55 @@
     }
 
     // Inisialisasi navigasi aktif
-    function initNavigation() {
-      const sections = document.querySelectorAll("section");
-      const navLi = document.querySelectorAll(".navbar .navbar-nav .nav-item");
-      const responsiveNavLinks = document.querySelectorAll(".responsive-nav-link");
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          if (window.pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id");
-          }
-        });
-        responsiveNavLinks.forEach(link => {
-          link.classList.remove("activeThistab");
-          const navLink = link.getAttribute("href").slice(1);
-          if (navLink === current) {
-            linkíficos
-classList.add("activeThistab");
-          }
-        });
-        navLi.forEach(li => {
-          li.classList.remove("activeThistab");
-          const navLink = li.querySelector('a').getAttribute("href").slice(1);
-          if (navLink === current) {
-            li.classList.add("activeThistab");
-          }
-        });
-      });
+function initNavigation() {
+  const sections = document.querySelectorAll("section");
+  const navLi = document.querySelectorAll(".navbar .navbar-nav .nav-item");
+  const responsiveNavLinks = document.querySelectorAll(".responsive-nav-link");
+
+  // Cek apakah halaman saat ini adalah index.html
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (window.pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    responsiveNavLinks.forEach(link => {
+      link.classList.remove("activeThistab");
+      const navLink = link.getAttribute("href").split('/').pop();
+      if (navLink === current || (current === "" && navLink === currentPage)) {
+        link.classList.add("activeThistab");
+      }
+    });
+
+    navLi.forEach(li => {
+      li.classList.remove("activeThistab");
+      const navLink = li.querySelector('a').getAttribute("href").split('/').pop();
+      if (navLink === current || (current === "" && navLink === currentPage)) {
+        li.classList.add("activeThistab");
+      }
+    });
+  });
+
+  // Inisialisasi tab aktif saat halaman dimuat
+  responsiveNavLinks.forEach(link => {
+    const navLink = link.getAttribute("href").split('/').pop();
+    if (navLink === currentPage) {
+      link.classList.add("activeThistab");
     }
+  });
+
+  navLi.forEach(li => {
+    const navLink = li.querySelector('a').getAttribute("href").split('/').pop();
+    if (navLink === currentPage) {
+      li.classList.add("activeThistab");
+    }
+  });
+}
 
     // Penanganan resize window
     function handleResize() {
