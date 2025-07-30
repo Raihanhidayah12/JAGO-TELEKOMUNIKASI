@@ -732,6 +732,10 @@
       transition-delay: 0.3s;
     }
 
+    .responsive-navbar.active .responsive-nav-link:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+
     /* Styling untuk kursor kustom */
     .cursor-inner, .cursor-outer {
       position: fixed;
@@ -919,6 +923,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/web/fiber.html">FIBER OPTIK</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -945,6 +952,7 @@
       <a class="responsive-nav-link" href="#home">BERANDA</a>
       <a class="responsive-nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
       <a class="responsive-nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
+      <a class="responsive-nav-link" href="/web/fiber.html">FIBER OPTIK</a>
     </div>
   </nav>
 
@@ -1215,7 +1223,8 @@
           link.classList.remove("activeThistab");
           const navLink = link.getAttribute("href").slice(1);
           if (navLink === current) {
-            link.classList.add("activeThistab");
+            linkíficos
+classList.add("activeThistab");
           }
         });
         navLi.forEach(li => {

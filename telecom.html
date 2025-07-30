@@ -215,9 +215,8 @@
       color: var(--color-white);
       transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
       display: flex;
-      align-items: center;
+      align-items: flex-start; /* Mengatur align ke atas */
       padding: 20px;
-      flex-direction: row;
       gap: 20px;
       min-height: 150px;
       opacity: 0;
@@ -255,14 +254,17 @@
 
     .card-content {
       flex-grow: 1;
-      text-align: justify;
+      text-align: justify; /* Mengatur teks rata kiri-kanan */
       font-family: 'Poppins', sans-serif;
     }
 
     .card-logo {
-      width: 180px;
-      height: 180px;
+      width: 150px;
+      height: 150px;
       object-fit: contain;
+      margin-right: 20px;
+      flex-shrink: 0; /* Mencegah logo menyusut */
+      align-self: center; /* Menjaga logo sejajar dengan teks */
     }
 
     /* Styling untuk footer */
@@ -659,6 +661,10 @@
       .card h3 {
         font-size: 1.4rem;
       }
+      .card-logo {
+        width: 120px;
+        height: 120px;
+      }
     }
 
     @media screen and (max-width: 998px) {
@@ -675,12 +681,12 @@
         padding-top: 90px;
       }
       .card {
-        flex-direction: column; /* Ubah ke tata letak vertikal */
-        text-align: center;
+        flex-direction: row; /* Tetap horizontal */
+        text-align: left;
         padding: 15px;
       }
       .card-logo {
-        margin-bottom: 15px;
+        margin-right: 15px;
         width: 120px;
         height: 120px;
       }
@@ -689,7 +695,7 @@
         font-size: 1.3rem;
       }
       .card-content {
-        text-align: left;
+        text-align: justify; /* Tetap rata kiri-kanan */
       }
     }
 
@@ -721,6 +727,10 @@
       }
       .card-content p {
         font-size: 0.9rem;
+      }
+      .card-logo {
+        width: 100px;
+        height: 100px;
       }
       footer {
         padding: 15px 0;
@@ -789,6 +799,10 @@
       .card-content p {
         font-size: 0.7rem;
       }
+      .card-logo {
+        width: 60px;
+        height: 60px;
+      }
       .responsive-nav-link {
         font-size: 0.9rem;
         padding: 6px 12px;
@@ -825,6 +839,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/web/fiber.html">FIBER OPTIK</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -851,6 +868,7 @@
       <a class="responsive-nav-link" href="/web/home.html">BERANDA</a>
       <a class="responsive-nav-link activeThistab" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a> <!-- Tab aktif -->
       <a class="responsive-nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
+      <a class="responsive-nav-link" href="/web/fiber.html">FIBER OPTIK</a>
     </div>
   </nav>
 
@@ -858,19 +876,28 @@
   <section id="tentang" class="section-content">
     <div class="container">
       <div class="row">
-        <!-- Kartu pertama: Penjelasan tentang telekomunikasi -->
-        <div class="col-12 col-md-6 mb-4">
+        <!-- Kartu pertama: Jurusan Teknik Transmisi Telekomunikasi -->
+        <div class="col-12 mb-4">
           <div class="card p-4" data-aos="fade-up" data-aos-delay="100">
             <img src="images-removebg-preview (1).png" alt="Logo Telekomunikasi" class="card-logo">
+            <div class="card-content">
+              <h3>JURUSAN TEKNIK TRANSMISI TELEKOMUNIKASI</h3>
+              <p>Jurusan Teknik Transmisi Telekomunikasi di SMK Telkom Makassar merupakan program keahlian yang berfokus pada penguasaan teknologi komunikasi modern, yang mencakup instalasi, konfigurasi, dan pemeliharaan sistem transmisi data melalui berbagai media seperti fiber optik, jaringan seluler, gelombang radio, dan perangkat VSAT, serta pengenalan teknologi terkini seperti Internet of Things (IoT) dan konfigurasi FTTH. Dalam proses belajar, siswa/i tidak hanya mendapatkan teori, tetapi juga dilatih melalui praktik langsung di laboratorium dengan peralatan modern seperti fusion splicer untuk penyambungan serat optik, instalasi jaringan triple-play (data, suara, dan video), serta konfigurasi perangkat transmisi. Lulusan Teknik Transmisi Telekomunikasi memiliki peluang kerja yang luas di berbagai perusahaan penyedia layanan komunikasi seperti Telkom Akses, Icon Plus, dan perusahaan teknologi lainnya yang bergerak di bidang jaringan dan infrastruktur. Selain itu, mereka dibekali dengan karakter profesional dan etika kerja yang baik sehingga mampu bersaing di era digital yang semakin berkembang.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Kartu kedua: Penjelasan tentang telekomunikasi -->
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card p-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card-content">
               <h3>APA ITU TELEKOMUNIKASI</h3>
               <p>Telekomunikasi adalah proses pengiriman informasi jarak jauh, seperti suara, data, gambar atau video melalui media seperti kabel, gelombang radio atau serat optik, yang melibatkan perangkat pengirim, media transmisi dan penerima yang berperan penting dalam menghubungkan manusia di berbagai bidang pendidikan, keamanan dan internet of things (IoT).</p>
             </div>
           </div>
         </div>
-        <!-- Kartu kedua: Pentingnya telekomunikasi -->
+        <!-- Kartu ketiga: Pentingnya telekomunikasi -->
         <div class="col-12 col-md-6 mb-4">
-          <div class="card p-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card-content">
               <h3>PENTINGNYA TELEKOMUNIKASI</h3>
               <p>Telekomunikasi memainkan peran krusial di era modern, memungkinkan konektivitas global yang mendukung komunikasi pribadi, operasi bisnis, pendidikan jarak jauh, dan pemerintahan digital. Teknologi seperti 5G dan serat optik mempercepat pertukaran data, mendorong inovasi di bidang Internet of Things (IoT), smart cities, dan keamanan siber, sehingga memperkuat hubungan antarindividu dan organisasi di seluruh dunia.</p>

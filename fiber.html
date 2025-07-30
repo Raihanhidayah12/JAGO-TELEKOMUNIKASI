@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- Deklarasi metadata untuk encoding karakter dan responsivitas -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Konfigurasi FTTH</title>
-  
-  <!-- Mengimpor Bootstrap CSS untuk styling responsif dan komponen UI -->
+  <title>Fiber Optik</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Mengimpor AOS (Animate On Scroll) untuk animasi saat scroll -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Mengimpor Google Fonts untuk tipografi Montserrat, Poppins, dan Fira Code -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Custom: Definisi variabel warna untuk tema gelap dan terang */
     :root {
       --color-white: #fff;
       --color-black: #000;
@@ -34,7 +28,6 @@
       --tech-stack-box-border-color: #292929;
     }
 
-    /* Reset default margin, padding, dan menonaktifkan seleksi teks */
     * {
       margin: 0;
       padding: 0;
@@ -46,26 +39,24 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Pengaturan dasar untuk body dan HTML */
     html, body {
       height: 100%;
       margin: 0;
     }
 
     body {
-      font-family: 'Montserrat', 'Fira Code', sans-serif; /* Font utama */
-      background: var(--color-dark-mode); /* Latar belakang tema gelap */
-      color: var(--color-white); /* Warna teks putih */
-      overflow-x: hidden; /* Mencegah scroll horizontal */
+      font-family: 'Montserrat', 'Fira Code', sans-serif;
+      background: var(--color-dark-mode);
+      color: var(--color-white);
+      overflow-x: hidden;
       cursor: default;
-      transition: background-color 0.5s; /* Transisi mulus untuk perubahan tema */
+      transition: background-color 0.5s;
       display: flex;
-      flex-direction: column; /* Layout flex untuk memastikan footer tetap di bawah */
+      flex-direction: column;
     }
 
-    /* Styling untuk mode terang */
     body.light-mode {
-      --color-dark-mode: #ece7e1; /* Ubah latar belakang ke terang */
+      --color-dark-mode: #ece7e1;
       --color-black: #fff;
       --color-white: #000;
       --color-ddd-color: rgb(31, 31, 31);
@@ -78,23 +69,20 @@
       --tech-stack-box-border-color: #dad5cf;
     }
 
-    /* Menonaktifkan scroll saat navbar responsif aktif */
     body.stopscrolling {
       overflow: hidden;
     }
 
-    /* Styling untuk canvas (latar belakang partikel animasi) */
     canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; /* Di belakang konten */
-      opacity: 0.3; /* Transparansi untuk efek subtil */
+      z-index: -1;
+      opacity: 0.3;
     }
 
-    /* Styling scrollbar kustom */
     ::-webkit-scrollbar {
       width: 5px;
     }
@@ -106,10 +94,9 @@
       border-radius: 5px;
     }
 
-    /* Styling navbar utama */
     .navbar {
       background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
-      backdrop-filter: blur(10px); /* Efek buram */
+      backdrop-filter: blur(10px);
       padding: 5px 50px;
       width: 70%;
       margin: 20px auto;
@@ -127,12 +114,10 @@
       align-items: center;
     }
 
-    /* Efek hover untuk navbar */
     .navbar:hover {
       transform: translateX(-50%) scale(1.02);
     }
 
-    /* Styling untuk navbar brand (logo dan teks) */
     .navbar-brand {
       color: var(--color-light-blue) !important;
       font-size: 1rem;
@@ -164,7 +149,6 @@
       height: 35px;
     }
 
-    /* Styling untuk link navigasi */
     .nav-link {
       color: var(--color-light-blue) !important;
       font-size: 0.9rem;
@@ -183,7 +167,6 @@
       transform: scale(1.05);
     }
 
-    /* Indikator tab aktif */
     .nav-item.activeThistab .nav-link {
       color: var(--color-white) !important;
       position: relative;
@@ -200,83 +183,196 @@
       z-index: -1;
     }
 
-    /* Styling untuk konten utama */
     .section-content {
       padding: 120px 0 20px 0;
-      flex: 1 0 auto; /* Memastikan konten mengisi ruang yang tersedia */
+      flex: 1 0 auto;
     }
 
-    /* Styling untuk card */
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
+    .section-title {
+      font-family: 'Fira Code', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
       color: var(--color-white);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    }
+
+    .row {
+      align-items: stretch;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(26, 26, 41, 0.8), rgba(27, 27, 40, 0.6));
+      border: 1px solid var(--tech-stack-box-border-color);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      color: var(--color-white);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.5s ease;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 15px;
       padding: 20px;
-      flex-direction: row;
-      gap: 20px;
-      min-height: 200px;
       opacity: 0;
-      animation: fadeIn 0.5s ease forwards; /* Animasi masuk */
+      animation: popIn 0.6s ease forwards;
+      position: relative;
+      overflow: hidden;
+      animation: breathe 6s ease-in-out infinite alternate;
+    }
+
+    .uniform-card {
+      height: 300px; /* Tinggi lebih kecil untuk proporsional */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card.long-card {
+      min-height: 400px;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(107, 197, 248, 0.1) 0%, transparent 70%);
+      z-index: 0;
+      transition: transform 0.6s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(107, 197, 248, 0.3);
-      animation: pulse 0.3s ease;
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 10px 30px rgba(107, 197, 248, 0.3);
+      animation: bounce 0.4s ease;
     }
 
-    /* Animasi fadeIn untuk card */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .card:hover::before {
+      transform: translate(20%, 20%);
     }
 
-    /* Animasi pulse saat hover */
-    @keyframes pulse {
-      0% { transform: translateY(-5px) scale(1); }
-      50% { transform: translateY(-7px) scale(1.02); }
-      100% { transform: translateY(-5px) scale(1); }
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
-    /* Styling untuk heading dalam card */
+    @keyframes breathe {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        transform: translateY(-5px) scale(1.02);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-10px) rotate(1deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(1.5deg) scale(1.05);
+      }
+    }
+
     .card h3 {
       color: var(--color-light-blue);
       font-weight: 700;
-      background: linear-gradient(-45deg, var(--color-light-blue), var(--color-purple));
+      background: linear-gradient(45deg, var(--color-light-blue), var(--color-purple));
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-family: 'Fira Code', monospace;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
       text-align: left;
-      font-size: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Styling untuk konten dalam card */
     .card-content {
-      flex-grow: 1;
-      text-align: justify;
       font-family: 'Poppins', sans-serif;
+      text-align: justify;
+      position: relative;
+      z-index: 1;
+      flex-grow: 1;
+      overflow-y: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .card-content::-webkit-scrollbar {
+      display: none;
     }
 
-    /* Styling untuk logo dalam card */
-    .card-logo {
-      width: 180px;
-      height: 180px;
+    .card-image {
+      width: 350px;
+      height: 350px;
       object-fit: contain;
+      align-self: center;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      max-width: 100%;
     }
 
-    /* Styling untuk gambar yang dapat diklik */
-    .card-img-top.clickable-image {
-      max-width: 700px; /* Membatasi lebar gambar */
-      height: auto; /* Menjaga rasio aspek */
+    .card-image:hover {
+      transform: scale(1.1);
     }
 
-    /* Styling untuk footer */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 20px rgba(107, 197, 248, 0.5);
+      border: 2px solid var(--color-light-blue);
+      border-radius: 10px;
+    }
+
+    .modal.show .modal-content {
+      transform: scale(1);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: var(--color-white);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .close:hover {
+      transform: scale(1.2);
+    }
+
     footer {
       background: var(--color-dark-mode);
       padding: 20px 0;
@@ -305,7 +401,6 @@
       font-family: 'Fira Code', monospace;
     }
 
-    /* Styling untuk tombol kembali ke atas */
     #backtotopbutton {
       position: fixed;
       right: 20px;
@@ -333,7 +428,6 @@
       font-weight: bold;
     }
 
-    /* Styling untuk container pengaturan (setting toggle) */
     .setting-container {
       position: fixed;
       top: 20px;
@@ -350,10 +444,9 @@
     }
 
     .settingactivate {
-      width: 200px; /* Lebar saat pengaturan diaktifkan */
+      width: 200px;
     }
 
-    /* Styling untuk tombol pengaturan */
     #labelforsetting {
       width: 40px;
       height: 40px;
@@ -372,7 +465,6 @@
       transform: rotate(180deg);
     }
 
-    /* Styling untuk tombol toggle mode visual */
     .visualmodetogglebuttoncontainer, .soundtogglebuttoncontainer {
       align-items: center;
       width: fit-content;
@@ -406,7 +498,6 @@
       background-size: 60%;
     }
 
-    /* Styling untuk tombol toggle suara */
     #labelforsound {
       width: 40px;
       height: 40px;
@@ -423,7 +514,6 @@
       background-size: 50%;
     }
 
-    /* Styling untuk hamburger menu (mobile) */
     .hamburger {
       display: none;
       position: fixed;
@@ -495,7 +585,6 @@
       transform-origin: left;
     }
 
-    /* Styling untuk navbar responsif (mobile) */
     .responsive-navbar {
       position: fixed;
       top: 0;
@@ -616,7 +705,6 @@
       transition-delay: 0.3s;
     }
 
-    /* Styling untuk kursor kustom */
     .cursor-inner, .cursor-outer {
       position: fixed;
       top: 0;
@@ -652,35 +740,7 @@
       height: 50px;
     }
 
-    /* Styling untuk modal (pop-up gambar) */
-    .modal-content {
-      background: var(--color-dark-mode);
-      border: 1px solid var(--color-navbarBorder-dark);
-      border-radius: 15px;
-      box-shadow: 0 0 20px var(--color-shadowDark);
-    }
-
-    .modal-header {
-      border-bottom: 1px solid var(--color-navbarBorder-dark);
-    }
-
-    .modal-title {
-      color: var(--color-light-blue);
-      font-family: 'Fira Code', monospace;
-    }
-
-    .btn-close-white {
-      filter: invert(1);
-    }
-
-    .modal-body img {
-      max-height: 80vh;
-      object-fit: contain;
-    }
-
-    /* Media Queries untuk responsivitas */
     @media screen and (max-width: 1200px) {
-      /* Penyesuaian untuk layar lebih kecil dari 1200px */
       .navbar {
         width: 80%;
         padding: 5px 30px;
@@ -694,16 +754,25 @@
       .section-content {
         padding-top: 110px;
       }
+      .section-title {
+        font-size: 2.2rem;
+      }
       .card {
         padding: 15px;
       }
       .card h3 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+      }
+      .card-image {
+        width: 300px;
+        height: 300px;
+      }
+      .uniform-card {
+        height: 280px; /* Lebih kecil untuk laptop */
       }
     }
 
     @media screen and (max-width: 998px) {
-      /* Sembunyikan navbar utama, tampilkan hamburger menu */
       .navbar {
         display: none;
       }
@@ -716,27 +785,25 @@
       .section-content {
         padding-top: 90px;
       }
-      .card {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px;
+      .section-title {
+        font-size: 2rem;
       }
-      .card-logo {
-        margin-bottom: 15px;
-        width: 120px;
-        height: 120px;
+      .card {
+        padding: 12px;
       }
       .card h3 {
-        text-align: left;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
-      .card-content {
-        text-align: justify;
+      .card-image {
+        width: 250px;
+        height: 250px;
+      }
+      .uniform-card {
+        height: 260px; /* Lebih kecil untuk tablet */
       }
     }
 
     @media screen and (max-width: 768px) {
-      /* Penyesuaian untuk layar lebih kecil dari 768px */
       html {
         font-size: 80%;
       }
@@ -759,11 +826,21 @@
       #burger-bar2 {
         width: 1.6rem;
       }
-      .card h3 {
-        font-size: 1.2rem;
+      .section-title {
+        font-size: 1.8rem;
       }
-      .card-content p {
+      .card {
+        padding: 10px;
+      }
+      .card h3 {
+        font-size: 1.3rem;
+      }
+      .card-content p, .card-content li {
         font-size: 0.9rem;
+      }
+      .card-image {
+        width: 200px;
+        height: 200px;
       }
       footer {
         padding: 15px 0;
@@ -771,10 +848,12 @@
       .footer-content {
         max-width: 90%;
       }
+      .uniform-card {
+        height: 240px;
+      }
     }
 
     @media screen and (max-width: 576px) {
-      /* Penyesuaian untuk layar lebih kecil dari 576px */
       html {
         font-size: 70%;
       }
@@ -797,19 +876,21 @@
       #burger-bar2 {
         width: 1.4rem;
       }
+      .section-title {
+        font-size: 1.5rem;
+      }
       .card {
-        padding: 10px;
-        min-height: 120px;
+        padding: 8px;
       }
       .card h3 {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
-      .card-content p {
+      .card-content p, .card-content li {
         font-size: 0.8rem;
       }
-      .card-logo {
-        width: 80px;
-        height: 80px;
+      .card-image {
+        width: 150px;
+        height: 150px;
       }
       footer {
         padding: 10px 0;
@@ -818,26 +899,22 @@
         padding: 0 10px;
         max-width: 100%;
       }
-      .modal-dialog {
-        margin: 10px;
-      }
-      .modal-body img {
-        max-height: 70vh;
+      .uniform-card {
+        height: 220px;
       }
     }
 
     @media screen and (max-width: 400px) {
-      /* Penyesuaian untuk layar sangat kecil */
       .section-content {
         padding-top: 80px;
       }
-      .card {
-        gap: 10px;
+      .section-title {
+        font-size: 1.3rem;
       }
       .card h3 {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
-      .card-content p {
+      .card-content p, .card-content li {
         font-size: 0.7rem;
       }
       .responsive-nav-link {
@@ -850,26 +927,25 @@
       .footer-subtitle {
         font-size: 0.65rem;
       }
+      .card-image {
+        width: 120px;
+        height: 120px;
+      }
+      .uniform-card {
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Canvas untuk animasi partikel di latar belakang -->
   <canvas id="particleCanvas"></canvas>
-
-  <!-- Navbar utama untuk tampilan desktop -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <!-- Logo SMK Telkom dan JAGO -->
+      <a class="navbar-brand" href="/web/home.html">
         <img src="telkom.svg" alt="SMK Telkom Logo">
         <span>|</span>
         <img src="jago.id2.svg" alt="JAGO Logo">
       </a>
-      <!-- Tombol toggler untuk navbar responsif -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
@@ -878,18 +954,16 @@
           <li class="nav-item">
             <a class="nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
           </li>
-          <li class="nav-item activeThistab">
+          <li class="nav-item">
             <a class="nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item activeThistab">
             <a class="nav-link" href="/web/fiber.html">FIBER OPTIK</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
-  <!-- Hamburger menu untuk tampilan mobile -->
   <div class="hamburger">
     <div class="hamburgerbase">
       <button id="hamburger-button" onclick="toggleResponsiveNavbar()">
@@ -899,155 +973,168 @@
       </button>
     </div>
   </div>
-  <!-- Navbar responsif untuk mobile -->
   <nav class="responsive-navbar" id="responsiveNavbar">
     <a class="responsive-nav-brand" href="/web/home.html">
       <img src="telkom.svg" alt="SMK Telkom Logo">
       <span>|</span>
-      <img src="jago.id 2.svg" alt="JAGO Logo">
+      <img src="jago.id2.svg" alt="JAGO Logo">
     </a>
     <div class="responsive-nav-links">
       <a class="responsive-nav-link" href="/web/home.html">BERANDA</a>
       <a class="responsive-nav-link" href="/web/telecom.html">TENTANG TELEKOMUNIKASI</a>
-      <a class="responsive-nav-link activeThistab" href="/web/ftth.html">KONFIGURASI FTTH</a> 
-      <a class="responsive-nav-link" href="/web/fiber.html">FIBER OPTIK</a>
+      <a class="responsive-nav-link" href="/web/ftth.html">KONFIGURASI FTTH</a>
+      <a class="responsive-nav-link activeThistab" href="/web/fiber.html">FIBER OPTIK</a>
     </div>
   </nav>
-
-  <!-- Konten utama: Bagian Konfigurasi FTTH -->
-  <section id="ftth" class="section-content">
+  <section id="fiber" class="section-content">
     <div class="container">
-      <h2 class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">FTTH KONFIGURASI</h2>
+      <h1 class="section-title" data-aos="fade-up" data-aos-delay="100">FIBER OPTIK</h1>
       <div class="row">
-        <!-- Card: Apa Itu FTTH -->
         <div class="col-12 col-md-6 mb-4">
-          <div class="card p-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card-content">
-              <h3>Apa Itu FTTH?</h3>
-              <p>FTTH (Fiber to the Home) adalah teknologi jaringan internet yang menggunakan kabel serat optik yang ditarik langsung dari pusat layanan (provider) hingga ke rumah pelanggan tanpa perantara kabel tembaga atau perangkat lainnya. Teknologi ini memungkinkan akses internet dengan kecepatan sangat tinggi, stabil, dan minim gangguan, karena serat optik mampu mentransmisikan data menggunakan cahaya dengan kecepatan yang jauh lebih cepat dibandingkan kabel tembaga.</p>
+              <h3>DEFINISI FIBER OPTIK</h3>
+              <p>Fiber optik adalah media transmisi berbentuk serat sangat tipis yang terbuat dari kaca atau plastik, digunakan untuk mentransmisikan sinyal cahaya dari satu tempat ke tempat lain. Cahaya ini membawa data dalam bentuk pulsa digital, menggantikan gelombang listrik seperti pada kabel tembaga.</p>
+              <p>Fiber optik digunakan luas dalam telekomunikasi, jaringan internet, CCTV, hingga alat medis karena kemampuannya mengirim data dengan kecepatan tinggi dan jarak jauh tanpa gangguan elektromagnetik.</p>
             </div>
           </div>
         </div>
-        <!-- Card: Manfaat FTTH -->
         <div class="col-12 col-md-6 mb-4">
-          <div class="card p-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card-content">
-              <h3>Manfaat FTTH</h3>
+              <h3>CIRI-CIRI FIBER OPTIK</h3>
+              <ol>
+                <li>Media berbentuk serat tipis – Diameter sekitar 8–125 mikrometer.</li>
+                <li>Transmisi menggunakan cahaya – Sumber cahaya bisa berupa laser atau LED.</li>
+                <li>Tidak terpengaruh gangguan elektromagnetik (EMI) – Tidak seperti kabel tembaga.</li>
+                <li>Jarak transmisi sangat jauh – Bisa mencapai puluhan hingga ratusan kilometer tanpa penguat sinyal.</li>
+                <li>Bandwidth sangat tinggi – Mendukung kecepatan data hingga terabit per detik.</li>
+                <li>Ringan dan fleksibel – Mudah dipasang dan tidak terlalu berat dibanding kabel logam.</li>
+                <li>Keamanan tinggi – Sulit disadap karena tidak memancarkan sinyal elektromagnetik.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-content">
+              <h3>JENIS KONEKTOR FIBER OPTIK</h3>
+              <ol>
+                <li><strong>SC</strong> – (Subscriber Connector) – klik, kuat, populer di FTTH.</li>
+                <li><strong>LC</strong> – (Lucent Connector) – kecil, cocok untuk perangkat rackmount.</li>
+                <li><strong>ST</strong> – (Straight Tip) – tipe bayonet, dahulu umum di jaringan </li>
+                <li><strong>MTP/MPO</strong> – multiple fiber konektor, digunakan di pusat data (data center).</li>
+                <li><strong>FC</strong> – (Ferrule Connector) – tipe ulir, digunakan di lingkungan bergetar tinggi. </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-content">
+              <h3>CARA KERJA FIBER OPTIK</h3>
+              <ol>
+                <li>Cahaya dikirimkan dari pemancar (transmitter) ke core.</li>
+                <li>Karena perbedaan indeks bias, cahaya terus dipantulkan di dalam core oleh cladding melalui total internal reflection.</li>
+                <li>Cahaya melaju di dalam fiber sampai ke penerima (receiver) yang mengubahnya menjadi sinyal listrik/data.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="card-content">
+              <h3>KEUNTUNGAN DAN KELEMAHAN FIBER OPTIK</h3>
+              <h4>Keuntungan:</h4>
               <ul>
-                <li><strong>Kecepatan Tinggi:</strong> Internet lebih cepat untuk unduh dan unggah, cocok untuk streaming dan gaming.</li>
-                <li><strong>Stabil dan Andal:</strong> Tahan gangguan cuaca dan lebih stabil dibanding kabel tembaga.</li>
-                <li><strong>Siap Masa Depan:</strong> Mendukung teknologi baru karena kapasitas data sangat besar.</li>
-                <li><strong>Efisien Biaya Jangka Panjang:</strong> Tahan lama, minim perawatan, dan jarang rusak.</li>
+                <li>Kecepatan tinggi</li>
+                <li>Jarak transmisi jauh</li>
+                <li>Tahan terhadap gangguan</li>
+                <li>Ukuran kecil dan ringan</li>
+                <li>Hemat energi dalam jangka panjang</li>
+              </ul>
+              <h4>Kelemahan:</h4>
+              <ul>
+                <li>Biaya instalasi tinggi</li>
+                <li>Rapuh terhadap tekukan</li>
+                <li>Sulit diperbaiki dibanding kabel tembaga</li>
               </ul>
             </div>
           </div>
         </div>
-        <!-- Card: Ciri-ciri Utama FTTH -->
         <div class="col-12 col-md-6 mb-4">
-          <div class="card p-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="600">
             <div class="card-content">
-              <h3>Ciri-ciri Utama FTTH</h3>
-              <ul>
-                <li>Menggunakan serat optik sepenuhnya (bukan campuran).</li>
-                <li>Langsung ke rumah pelanggan, bukan hanya sampai ke gedung atau lingkungan sekitar.</li>
-                <li>Memiliki kecepatan tinggi dan kualitas sinyal yang konsisten.</li>
-              </ul>
+              <h3>JENIS-JENIS FIBER OPTIK</h3>
+              <ol>
+                <li><strong>Single Mode Fiber (SMF)</strong><br>	•	Inti sangat kecil (~8–10 µm).<br>•	Hanya satu jalur cahaya yang lewat.<br>•	Jarak sangat jauh, cocok untuk komunikasi backbone</li>
+                <li><strong>Multi Mode Fiber (MMF)</strong><br>	•	Inti lebih besar (~50–62,5 µm).<br>•	Banyak jalur cahaya lewat sekaligus (banyak mode).<br>•	Jarak lebih pendek, cocok untuk LAN dan gedung.</li>
+              </ol>
             </div>
           </div>
         </div>
-        <!-- Card: Kesimpulan -->
-        <div class="col-12 col-md-6 mb-4">
-          <div class="card p-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="card-content">
-              <h3>Kesimpulan</h3>
-              <p>FTTH adalah solusi internet masa kini dan masa depan yang cepat, stabil, dan mendukung berbagai kebutuhan digital, seperti streaming, gaming, konferensi video, hingga smart home.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Card: Diagram FTTH Configuration -->
+      </div>
+      <div class="row">
         <div class="col-12 mb-4">
-          <div class="card p-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="card-content text-center">
-              <h3>Diagram FTTH Konfigurasi</h3>
-              <!-- Gambar yang dapat diklik untuk membuka modal -->
-              <img src="IMG_0648.PNG" alt="FTTH Configuration Diagram" class="card-img-top clickable-image" data-bs-toggle="modal" data-bs-target="#imageModal" style="cursor: pointer;">
-            </div>
-          </div>
-        </div>
-        <!-- Card: Fungsi Perangkat FTTH -->
-        <div class="col-12 mb-4">
-          <div class="card p-4" data-aos="fade-up" data-aos-delay="700">
+          <div class="card long-card p-4" data-aos="fade-up" data-aos-delay="700">
+            <img src="WhatsApp Image 2025-07-30 at 17.07.22_926d72cf.jpg" alt="Fiber Optik Structure" class="card-image">
             <div class="card-content">
-              <h3>Fungsi Perangkat FTTH</h3>
-              <p><strong>Urutan Aliran Sinyal FTTH:</strong> OLT → ODF → ODC → ODP → OTP/Roset → ONT → Perangkat Internet (WiFi, TV, dll)</p>
-              <!-- Tabel untuk menjelaskan fungsi perangkat -->
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Singkatan</th>
-                    <th>Nama Lengkap</th>
-                    <th>Fungsi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>OLT</td>
-                    <td>Optical Line Terminal</td>
-                    <td>Mengirim & mengatur sinyal optik dari pusat ke pelanggan melalui jaringan FTTH.</td>
-                  </tr>
-                  <tr>
-                    <td>FTM</td>
-                    <td>Fiber Terminal Management</td>
-                    <td>Mengelola sambungan akhir kabel fiber optik agar rapi, aman, mudah dirawat, dan memastikan koneksi stabil dengan minim gangguan.</td>
-                  </tr>
-                  <tr>
-                    <td>ODC</td>
-                    <td>Optical Distribution Cabinet</td>
-                    <td>Kotak pembagi di lapangan untuk mendistribusikan kabel optik ke berbagai area.</td>
-                  </tr>
-                  <tr>
-                    <td>ODP</td>
-                    <td>Optical Distribution Point</td>
-                    <td>Titik akhir pembagi kabel optik sebelum masuk ke rumah pelanggan.</td>
-                  </tr>
-                  <tr>
-                    <td>OTP</td>
-                    <td>Optical Terminal Box / Panel</td>
-                    <td>Panel sambungan fiber di dalam/pinggir gedung sebelum ke ONT (mirip roset).</td>
-                  </tr>
-                  <tr>
-                    <td>Roset</td>
-                    <td>Roset Fiber Optik</td>
-                    <td>Kotak kecil di dinding rumah tempat terminasi kabel fiber dari luar ke ONT.</td>
-                  </tr>
-                  <tr>
-                    <td>ONT</td>
-                    <td>Optical Network Terminal</td>
-                    <td>Mengubah sinyal optik jadi sinyal digital/internet di rumah pelanggan.</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h3>BAGIAN-BAGIAN FIBER OPTIK</h3>
+              <ol>
+                <li><strong>Core (Inti)</strong>
+                  <ul>
+                    <li>Bagian paling tengah yang berfungsi sebagai jalur transmisi cahaya.</li>
+                    <li>Terbuat dari kaca atau plastik dengan indeks bias tinggi.</li>
+                    <li>Diameter: biasanya 8–62,5 µm tergantung jenisnya (single-mode atau multi-mode).</li>
+                  </ul>
+                </li>
+                <li><strong>Cladding (Selubung)</strong>
+                  <ul>
+                    <li>Lapisan yang menyelimuti core.</li>
+                    <li>Memiliki indeks bias lebih rendah dari core agar terjadi total internal reflection, yang memantulkan cahaya tetap berada di dalam core.</li>
+                  </ul>
+                </li>
+                <li><strong>Buffer Coating</strong>
+                  <ul>
+                    <li>Lapisan pelindung pertama yang melindungi cladding dari goresan, kelembaban, dan kerusakan fisik.</li>
+                    <li>Biasanya berbahan plastik.</li>
+                  </ul>
+                </li>
+                <li><strong>Strength Member</strong>
+                  <ul>
+                    <li>Lapisan penguat untuk mencegah kabel dari tarikan atau tekanan berlebih saat instalasi.</li>
+                  </ul>
+                </li>
+                <li><strong>Outer Jacket (Sarung Luar)</strong>
+                  <ul>
+                    <li>Lapisan paling luar dari kabel.</li>
+                    <li>Memberikan perlindungan terhadap faktor lingkungan seperti air, panas, atau bahan kimia.</li>
+                  </ul>
+                </li>
+              </ol>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <img id="modal-image" class="modal-content" src="">
+  </div>
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 Telekomunikasi Elite.</p>
       <p class="footer-subtitle">🚀 SMK Telkom Makassar - Innovation in Telecommunications</p>
     </div>
   </footer>
-
-  <!-- Tombol kembali ke atas -->
   <button id="backtotopbutton" onclick="scrolltoTopfunction()">
     <span>↑</span>
   </button>
-
-  <!-- Container untuk pengaturan (visual mode dan sound toggle) -->
   <div class="setting-container" id="setting-container">
     <input type="checkbox" id="switchforsetting" class="d-none" onchange="settingtoggle()">
     <label for="switchforsetting" id="labelforsetting"></label>
@@ -1060,26 +1147,7 @@
       <label for="switchforsound" id="labelforsound"></label>
     </div>
   </div>
-
-  <!-- Modal untuk menampilkan gambar dalam ukuran besar -->
-  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="imageModalLabel">FTTH Configuration Diagram</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <img id="modalImage" src="" alt="FTTH Configuration Diagram" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- JavaScript untuk fungsionalitas interaktif -->
   <script>
-    // Deklarasi variabel global
-    const audio = document.getElementById("audioPlayer");
     const settingContainer = document.getElementById("setting-container");
     const visualModeToggle = document.getElementById("visualmodetogglebuttoncontainer");
     const soundToggle = document.getElementById("soundtogglebuttoncontainer");
@@ -1088,8 +1156,9 @@
     const burgerBar3 = document.getElementById("burger-bar3");
     const backToTopButton = document.getElementById("backtotopbutton");
     const responsiveNavbar = document.getElementById("responsiveNavbar");
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modal-image");
 
-    // Animasi latar belakang partikel
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -1153,7 +1222,6 @@
       requestAnimationFrame(animateParticles);
     }
 
-    // Inisialisasi kursor kustom
     function initCustomCursor() {
       const cursorInner = document.createElement('div');
       const cursorOuter = document.createElement('div');
@@ -1169,7 +1237,7 @@
         cursorOuter.style.left = `${x}px`;
         cursorOuter.style.top = `${y}px`;
       });
-      document.querySelectorAll('a, .btn-luxury, .card, button, #hamburger-button, .responsive-nav-link, .responsive-nav-brand, .clickable-image').forEach(el => {
+      document.querySelectorAll('a, .btn-luxury, .card, button, #hamburger-button, .responsive-nav-link, .responsive-nav-brand, .card-image').forEach(el => {
         el.addEventListener('mouseenter', () => {
           cursorInner.classList.add('hover');
           cursorOuter.classList.add('hover');
@@ -1181,15 +1249,6 @@
       });
     }
 
-    // Mengatur sumber gambar untuk modal
-    document.querySelectorAll('.clickable-image').forEach(img => {
-      img.addEventListener('click', () => {
-        const modalImage = document.getElementById('modalImage');
-        modalImage.src = img.src;
-      });
-    });
-
-    // Fungsi untuk toggle pengaturan
     function settingtoggle() {
       settingContainer.classList.toggle("settingactivate");
       setTimeout(() => {
@@ -1201,7 +1260,6 @@
       navigator.vibrate && navigator.vibrate(50);
     }
 
-    // Fungsi untuk play/pause audio
     function playpause() {
       if (!document.getElementById("switchforsound").checked) {
         audio.pause();
@@ -1210,7 +1268,6 @@
       }
     }
 
-    // Fungsi untuk toggle mode visual (terang/gelap)
     function visualmode() {
       document.body.style.transition = 'all 0.5s ease';
       document.body.classList.toggle("light-mode");
@@ -1221,7 +1278,6 @@
       }, 250);
     }
 
-    // Fungsi untuk toggle navbar responsif
     function toggleResponsiveNavbar() {
       document.body.classList.toggle("stopscrolling");
       responsiveNavbar.classList.toggle("active");
@@ -1230,7 +1286,6 @@
       burgerBar3.classList.toggle("hamburger-animation3");
     }
 
-    // Fungsi untuk menampilkan tombol kembali ke atas
     function scrollFunction() {
       if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         backToTopButton.style.display = "block";
@@ -1239,27 +1294,17 @@
       }
     }
 
-    // Fungsi untuk scroll ke atas dengan animasi
-function scrolltoTopfunction() {
-  const duration = 200; // Durasi animasi dalam milidetik
-  const start = window.scrollY; // Posisi scroll awal
-  const startTime = performance.now(); // Waktu mulai animasi
-
-  function animateScroll(currentTime) {
-    const elapsed = currentTime - startTime; // Waktu yang telah berlalu
-    const progress = Math.min(elapsed / duration, 1); // Progres animasi (0 hingga 1)
-    const ease = progress * (2 - progress); // Fungsi easing untuk animasi lebih halus
-    window.scrollTo(0, start * (1 - ease)); // Hitung posisi scroll baru
-
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll); // Lanjutkan animasi hingga selesai
+    function scrolltoTopfunction() {
+      const scrollStep = -window.scrollY / (500 / 15);
+      const scrollInterval = setInterval(() => {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
+          clearInterval(scrollInterval);
+        }
+      }, 15);
     }
-  }
 
-  requestAnimationFrame(animateScroll);
-}
-
-    // Inisialisasi navigasi aktif
     function initNavigation() {
       const sections = document.querySelectorAll("section");
       const navLi = document.querySelectorAll(".navbar .navbar-nav .nav-item");
@@ -1289,13 +1334,11 @@ function scrolltoTopfunction() {
       });
     }
 
-    // Penanganan resize window
     function handleResize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
 
-    // Inisialisasi smooth scrolling
     function initSmoothScrolling() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -1314,7 +1357,6 @@ function scrolltoTopfunction() {
       });
     }
 
-    // Inisialisasi indikator progres scroll
     function initScrollProgress() {
       const progressBar = document.createElement('div');
       progressBar.style.cssText = `
@@ -1336,7 +1378,6 @@ function scrolltoTopfunction() {
       });
     }
 
-    // Styling konsol
     function initConsoleArt() {
       console.log('%c 🚀 SMK Telkom Makassar - Jago Telekomunikasi ',
         'background: linear-gradient(90deg, var(--color-light-blue), var(--color-white)); color: var(--color-black); font-weight: 900; font-size: 1.2rem; padding: 15px; border-radius: 5px; margin: 10px 0;'
@@ -1349,7 +1390,6 @@ function scrolltoTopfunction() {
       );
     }
 
-    // Inisialisasi navigasi dengan keyboard
     function initKeyboardNav() {
       document.addEventListener('keydown', (e) => {
         switch(e.key) {
@@ -1365,12 +1405,14 @@ function scrolltoTopfunction() {
             if (responsiveNavbar.classList.contains('active')) {
               toggleResponsiveNavbar();
             }
+            if (modal.classList.contains('show')) {
+              closePopup();
+            }
             break;
         }
       });
     }
 
-    // Monitor performa pemuatan halaman
     function initPerformanceMonitor() {
       window.addEventListener('load', () => {
         const loadTime = performance.now();
@@ -1380,7 +1422,27 @@ function scrolltoTopfunction() {
       });
     }
 
-    // Inisialisasi semua fungsi
+    function showPopup(imageSrc) {
+      modal.classList.add('show');
+      modalImage.src = imageSrc;
+    }
+
+    function closePopup() {
+      modal.classList.remove('show');
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
+    }
+
+    function initImagePopup() {
+      const cardImages = document.querySelectorAll('.card-image');
+      cardImages.forEach(image => {
+        image.addEventListener('click', () => {
+          showPopup(image.src);
+        });
+      });
+    }
+
     function init() {
       initParticles();
       animateParticles();
@@ -1391,6 +1453,7 @@ function scrolltoTopfunction() {
       initConsoleArt();
       initKeyboardNav();
       initPerformanceMonitor();
+      initImagePopup();
       window.addEventListener('resize', handleResize);
       window.addEventListener('scroll', scrollFunction);
       document.addEventListener("contextmenu", (e) => {
@@ -1398,11 +1461,15 @@ function scrolltoTopfunction() {
           e.preventDefault();
         }
       });
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closePopup();
+        }
+      });
     }
 
     document.addEventListener('DOMContentLoaded', init);
   </script>
-  <!-- Mengimpor AOS untuk animasi saat scroll -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1412,7 +1479,6 @@ function scrolltoTopfunction() {
       });
     });
   </script>
-  <!-- Mengimpor Popper dan Bootstrap JS untuk fungsi interaktif -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
