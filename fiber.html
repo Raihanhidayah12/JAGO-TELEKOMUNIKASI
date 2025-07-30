@@ -740,201 +740,280 @@
       height: 50px;
     }
 
-    @media screen and (max-width: 1200px) {
-      .navbar {
-        width: 80%;
-        padding: 5px 30px;
-      }
-      .navbar-brand img {
-        height: 30px;
-      }
-      .nav-link {
-        font-size: 0.85rem;
-      }
-      .section-content {
-        padding-top: 110px;
-      }
-      .section-title {
-        font-size: 2.2rem;
-      }
-      .card {
-        padding: 15px;
-      }
-      .card h3 {
-        font-size: 1.6rem;
-      }
-      .card-image {
-        width: 300px;
-        height: 300px;
-      }
-      .uniform-card {
-        height: 280px; /* Lebih kecil untuk laptop */
-      }
-    }
+@media screen and (max-width: 1200px) {
+  .navbar {
+    width: 80%;
+    padding: 5px 30px;
+  }
 
-    @media screen and (max-width: 998px) {
-      .navbar {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-      .cursor-inner, .cursor-outer {
-        display: none;
-      }
-      .section-content {
-        padding-top: 90px;
-      }
-      .section-title {
-        font-size: 2rem;
-      }
-      .card {
-        padding: 12px;
-      }
-      .card h3 {
-        font-size: 1.4rem;
-      }
-      .card-image {
-        width: 250px;
-        height: 250px;
-      }
-      .uniform-card {
-        height: 260px; /* Lebih kecil untuk tablet */
-      }
-    }
+  .navbar-brand img {
+    height: 30px;
+  }
 
-    @media screen and (max-width: 768px) {
-      html {
-        font-size: 80%;
-      }
-      .navbar-brand img, .responsive-nav-brand img {
-        height: 25px;
-      }
-      .responsive-nav-brand span {
-        font-size: 0.85rem;
-      }
-      .hamburgerbase {
-        padding: 8px 12px;
-      }
-      #hamburger-button {
-        width: 2rem;
-        height: 1.8rem;
-      }
-      #burger-bar1, #burger-bar3 {
-        width: 1.2rem;
-      }
-      #burger-bar2 {
-        width: 1.6rem;
-      }
-      .section-title {
-        font-size: 1.8rem;
-      }
-      .card {
-        padding: 10px;
-      }
-      .card h3 {
-        font-size: 1.3rem;
-      }
-      .card-content p, .card-content li {
-        font-size: 0.9rem;
-      }
-      .card-image {
-        width: 200px;
-        height: 200px;
-      }
-      footer {
-        padding: 15px 0;
-      }
-      .footer-content {
-        max-width: 90%;
-      }
-      .uniform-card {
-        height: 240px;
-      }
-    }
+  .nav-link {
+    font-size: 0.85rem;
+  }
 
-    @media screen and (max-width: 576px) {
-      html {
-        font-size: 70%;
-      }
-      .navbar-brand img, .responsive-nav-brand img {
-        height: 20px;
-      }
-      .responsive-nav-brand span {
-        font-size: 0.75rem;
-      }
-      .hamburgerbase {
-        padding: 6px 10px;
-      }
-      #hamburger-button {
-        width: 1.8rem;
-        height: 1.5rem;
-      }
-      #burger-bar1, #burger-bar3 {
-        width: 1rem;
-      }
-      #burger-bar2 {
-        width: 1.4rem;
-      }
-      .section-title {
-        font-size: 1.5rem;
-      }
-      .card {
-        padding: 8px;
-      }
-      .card h3 {
-        font-size: 1.1rem;
-      }
-      .card-content p, .card-content li {
-        font-size: 0.8rem;
-      }
-      .card-image {
-        width: 150px;
-        height: 150px;
-      }
-      footer {
-        padding: 10px 0;
-      }
-      .footer-content {
-        padding: 0 10px;
-        max-width: 100%;
-      }
-      .uniform-card {
-        height: 220px;
-      }
-    }
+  .section-content {
+    padding-top: 110px;
+  }
 
-    @media screen and (max-width: 400px) {
-      .section-content {
-        padding-top: 80px;
-      }
-      .section-title {
-        font-size: 1.3rem;
-      }
-      .card h3 {
-        font-size: 1rem;
-      }
-      .card-content p, .card-content li {
-        font-size: 0.7rem;
-      }
-      .responsive-nav-link {
-        font-size: 0.9rem;
-        padding: 6px 12px;
-      }
-      .footer-content p {
-        font-size: 0.7rem;
-      }
-      .footer-subtitle {
-        font-size: 0.65rem;
-      }
-      .card-image {
-        width: 120px;
-        height: 120px;
-      }
-      .uniform-card {
-        height: 200px;
-      }
-    }
+  .section-title {
+    font-size: clamp(1.8rem, 4.5vw, 2.2rem);
+  }
+
+  .card {
+    padding: clamp(10px, 2.5vw, 15px);
+  }
+
+  .card h3 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+  }
+
+  .card-content p, .card-content li {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+  }
+
+  .uniform-card {
+    min-height: 260px; /* Changed to min-height */
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .navbar {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .cursor-inner, .cursor-outer {
+    display: none;
+  }
+
+  .section-content {
+    padding-top: 90px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+  }
+
+  .card {
+    padding: clamp(8px, 2vw, 12px);
+  }
+
+  .card h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+
+  .card-content p, .card-content li {
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+  }
+
+  .uniform-card {
+    min-height: 240px; /* Changed to min-height */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+
+  .navbar-brand img, .responsive-nav-brand img {
+    height: 25px;
+  }
+
+  .responsive-nav-brand span {
+    font-size: 0.85rem;
+  }
+
+  .hamburgerbase {
+    padding: 8px 12px;
+  }
+
+  #hamburger-button {
+    width: 2rem;
+    height: 1.8rem;
+  }
+
+  #burger-bar1, #burger-bar3 {
+    width: 1.2rem;
+  }
+
+  #burger-bar2 {
+    width: 1.6rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+  }
+
+  .card {
+    padding: clamp(8px, 2vw, 10px);
+  }
+
+  .card h3 {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+  }
+
+  .card-content p, .card-content li {
+    font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+  }
+
+  footer {
+    padding: 15px 0;
+  }
+
+  .footer-content {
+    max-width: 90%;
+  }
+
+  .uniform-card {
+    min-height: 220px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 85%; /* Increased for better readability */
+  }
+
+  .navbar-brand img, .responsive-nav-brand img {
+    height: 20px;
+  }
+
+  .responsive-nav-brand span {
+    font-size: 0.75rem;
+  }
+
+  .hamburgerbase {
+    padding: 6px 10px;
+  }
+
+  #hamburger-button {
+    width: 1.8rem;
+    height: 1.5rem;
+  }
+
+  #burger-bar1, #burger-bar3 {
+    width: 1rem;
+  }
+
+  #burger-bar2 {
+    width: 1.4rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 3vw, 1.6rem);
+  }
+
+  .card {
+    padding: clamp(8px, 2vw, 10px);
+  }
+
+  .card h3 {
+    font-size: clamp(1rem, 2.8vw, 1.3rem);
+  }
+
+  .card-content p, .card-content li {
+    font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  footer {
+    padding: 10px 0;
+  }
+
+  .footer-content {
+    padding: 0 10px;
+    max-width: 100%;
+  }
+
+  .uniform-card {
+    min-height: 200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 90%; /* Further increased for readability */
+  }
+
+  .section-content {
+    padding-top: 80px;
+  }
+
+  .section-title {
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+  }
+
+  .card h3 {
+    font-size: clamp(0.9rem, 2.8vw, 1.2rem);
+  }
+
+  .card-content p, .card-content li {
+    font-size: clamp(0.85rem, 2.8vw, 1rem);
+  }
+
+  .responsive-nav-link {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .footer-content p {
+    font-size: 0.7rem;
+  }
+
+  .footer-subtitle {
+    font-size: 0.65rem;
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+  }
+
+  .uniform-card {
+    min-height: 180px;
+  }
+}
   </style>
 </head>
 <body>
@@ -988,7 +1067,6 @@
   </nav>
   <section id="fiber" class="section-content">
     <div class="container">
-      <h1 class="section-title" data-aos="fade-up" data-aos-delay="100">FIBER OPTIK</h1>
       <div class="row">
         <div class="col-12 col-md-6 mb-4">
           <div class="card uniform-card p-4" data-aos="fade-up" data-aos-delay="100">
@@ -1294,16 +1372,25 @@
       }
     }
 
-    function scrolltoTopfunction() {
-      const scrollStep = -window.scrollY / (500 / 15);
-      const scrollInterval = setInterval(() => {
-        if (window.scrollY !== 0) {
-          window.scrollBy(0, scrollStep);
-        } else {
-          clearInterval(scrollInterval);
-        }
-      }, 15);
+    // Fungsi untuk scroll ke atas dengan animasi
+function scrolltoTopfunction() {
+  const duration = 200; // Durasi animasi dalam milidetik
+  const start = window.scrollY; // Posisi scroll awal
+  const startTime = performance.now(); // Waktu mulai animasi
+
+  function animateScroll(currentTime) {
+    const elapsed = currentTime - startTime; // Waktu yang telah berlalu
+    const progress = Math.min(elapsed / duration, 1); // Progres animasi (0 hingga 1)
+    const ease = progress * (2 - progress); // Fungsi easing untuk animasi lebih halus
+    window.scrollTo(0, start * (1 - ease)); // Hitung posisi scroll baru
+
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll); // Lanjutkan animasi hingga selesai
     }
+  }
+
+  requestAnimationFrame(animateScroll);
+}
 
     function initNavigation() {
       const sections = document.querySelectorAll("section");
